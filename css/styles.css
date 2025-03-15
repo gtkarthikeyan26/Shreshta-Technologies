@@ -5385,7 +5385,7 @@ a:focus {
       font-size: 2.5rem;
     }
   }
-  
+
 .portfolio-content-wrap:hover .portfolio-details-link {
     transform: translateY(0px);
     opacity: 1;
@@ -5408,7 +5408,6 @@ a:focus {
     padding: 0;
     margin: 0
 }
-
 .pagination ul {
     display: inline-block;
     margin: 0 auto;
