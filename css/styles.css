@@ -49,6 +49,44 @@
     animation-delay: 1s
 }
 
+.service-card {
+    padding: 2rem;
+    transition: all 0.3s ease;
+    text-align: center;
+  }
+  
+  .service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
+  }
+  
+  .service-icon {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+  }
+  
+  .service-icon img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+  }
+  
+  .btn-link {
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-link:hover {
+    transform: translateX(5px);
+  }
+  
 @keyframes LoaderCicle {
     0% {
         width: 0;
@@ -3476,6 +3514,26 @@ a:focus {
     }
 }
 
+.about-slideshow {
+    position: relative;
+    overflow: hidden;
+    height: auto; /* Adjust height to fit content */
+  }
+  
+  .slide {
+    position: relative;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    display: none; /* Hide all slides initially */
+  }
+  
+  .slide.active {
+    opacity: 1;
+    display: block; /* Show the active slide */
+  }
+
+
 .about-style-01 .image1 {
     position: relative
 }
@@ -5125,6 +5183,209 @@ a:focus {
     visibility: visible
 }
 
+/* Achievements Section Styles */
+/* Stats Showcase Section */
+.stats-showcase {
+    padding: 100px 0;
+    background-color: #001e73;
+    color: #ffffff;
+    text-align: center;
+  }
+  
+  .stats-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+  
+  /* Header Section */
+  .stats-header {
+    margin-bottom: 60px;
+  }
+  
+  .stats-heading {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #ffffff;
+  }
+  
+  .stats-subheading {
+    font-size: 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+  
+  /* Main Experience Counter */
+  .experience-highlight {
+    margin-bottom: 50px;
+  }
+  
+  .experience-frame {
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 50px 70px;
+    border-radius: 5px;
+  }
+  
+  .experience-number {
+    font-size: 8rem;
+    font-weight: 700;
+    line-height: 1;
+    display: block;
+    color: #ffffff;
+  }
+  
+  .experience-text {
+    display: block;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    margin-top: 10px;
+    color: #ffffff;
+  }
+  
+  .experience-separator {
+    width: 50px;
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.3);
+    margin: 20px auto 0;
+  }
+  
+  /* Partner Icons */
+  .partner-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 50px;
+  }
+  
+  .partner-logo {
+    max-width: 60px;
+    height: auto;
+    filter: brightness(0) invert(0.5);
+    transition: filter 0.3s ease;
+  }
+  
+  .partner-logo:hover {
+    filter: brightness(0) invert(0.8);
+  }
+  
+  /* Statistics Grid */
+  .metrics-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  .metrics-row {
+    display: flex;
+    gap: 2px;
+  }
+  
+  .metric-item {
+    flex: 1;
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .metric-value-wrapper {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+  
+  .metric-value {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #ffffff;
+  }
+  
+  .metric-plus {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-left: 2px;
+  }
+  
+  .metric-label {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: #ffffff;
+  }
+  
+  /* Counter Animation */
+  @keyframes countUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .stat-animate {
+    animation: countUp 1s ease-out forwards;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 992px) {
+    .stats-heading {
+      font-size: 2.2rem;
+    }
+    
+    .experience-number {
+      font-size: 6rem;
+    }
+    
+    .experience-frame {
+      padding: 40px 50px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .metrics-row {
+      flex-direction: column;
+    }
+    
+    .metric-item {
+      padding: 30px 20px;
+    }
+    
+    .partner-row {
+      flex-wrap: wrap;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .stats-heading {
+      font-size: 1.8rem;
+    }
+    
+    .experience-number {
+      font-size: 5rem;
+    }
+    
+    .experience-frame {
+      padding: 30px 40px;
+    }
+    
+    .metric-value {
+      font-size: 2.5rem;
+    }
+  }
+  
 .portfolio-content-wrap:hover .portfolio-details-link {
     transform: translateY(0px);
     opacity: 1;
@@ -6864,7 +7125,39 @@ h2.resp-accordion:first-child {
         font-size: 18px
     }
 }
-
+.section-bg {
+    background-size: cover;
+    background-position: center;
+    padding: 50px 0; 
+  }
+  
+  .primary-overlay {
+    background-color: rgba(0, 0, 0, 0.7); /* Darken overlay for better text contrast */
+  }
+  
+  .counter-number {
+    font-size: 4rem; /* Increase font size for emphasis */
+    margin-bottom: 20px; /* Add spacing below the number */
+  }
+  
+  .counter-number h4 {
+    font-size: 1.5rem; /* Adjust font size for the subtitle */
+  }
+  
+  .client1-carousel .client-wrapper {
+    margin: 0 15px; /* Add margin between logos */
+  }
+  
+  .client1-carousel img {
+    max-width: 100px; /* Set a maximum width for logos */
+    opacity: 0.8; /* Slightly reduce opacity for a subtle effect */
+    transition: opacity 0.3s ease; /* Add transition for hover effect */
+  }
+  
+  .client1-carousel img:hover {
+    opacity: 1; /* Restore full opacity on hover */
+  }
+  
 .counter-number span {
     font-size: 250px;
     line-height: 1;
@@ -7032,6 +7325,11 @@ h2.resp-accordion:first-child {
 .process-style1 {
     position: relative
 }
+.process-style1 .text-center {
+    width: 250px; /* Set the width to 250px */
+    margin: 0 auto; /* Center the element */
+    height: 250px;
+  }
 
 .process-style1:before {
     background: #e8e8e8;

@@ -7,6 +7,73 @@
         
     ---------------------------------- */
 
+  document.addEventListener("DOMContentLoaded", function () {
+    const slides = document.querySelectorAll(".about-slideshow .slide");
+    let currentSlide = 0;
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle("active", i === index);
+      });
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    showSlide(currentSlide);
+    setInterval(nextSlide, 6000); // Change slide every 3 seconds
+  });
+
+
+
+// Statistics Animation
+document.addEventListener('DOMContentLoaded', function() {
+    // Select all elements with class 'stat-animate'
+    const animatedStats = document.querySelectorAll('.stat-animate');
+    
+    // Intersection Observer to trigger animation when stats are visible
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px'
+    };
+    
+    const statsObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const statElement = entry.target;
+          const targetValue = parseInt(statElement.getAttribute('data-count'));
+          let currentValue = 0;
+          const duration = 2000; // Animation duration in milliseconds
+          const stepTime = 50; // Update interval in milliseconds
+          const totalSteps = duration / stepTime;
+          const stepValue = targetValue / totalSteps;
+          
+          // Start counting animation
+          const countAnimation = setInterval(() => {
+            currentValue += stepValue;
+            
+            // Update the counter value
+            if (currentValue < targetValue) {
+              statElement.textContent = Math.floor(currentValue);
+            } else {
+              statElement.textContent = targetValue;
+              clearInterval(countAnimation);
+            }
+          }, stepTime);
+          
+          // Unobserve after triggering animation
+          observer.unobserve(statElement);
+        }
+      });
+    }, observerOptions);
+    
+    // Observe all counters
+    animatedStats.forEach(stat => {
+      statsObserver.observe(stat);
+    });
+  });
 ! function(s) {
     "use strict";
     var i = s(window);
