@@ -290,7 +290,56 @@ a:focus {
     border-radius: 4px;
     text-transform: uppercase
 }
+.service-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.service-image {
+  width: 100%;
+  height: auto;
+  transition: opacity 0.3s ease;
+}
+
+.hover-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8); /* Darker overlay for better contrast */
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  padding: 20px;
+  text-align: left;
+}
+
+.service-card:hover .hover-content {
+  opacity: 1;
+}
+
+.hover-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.hover-content li {
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
 .butn .icon-arrow {
     color: #ffffff;
     top: 18px;
@@ -5186,141 +5235,152 @@ a:focus {
 /* Achievements Section Styles */
 /* Stats Showcase Section */
 .stats-showcase {
-    padding: 100px 0;
+    padding: 6rem 0;
     background-color: #001e73;
-    color: #ffffff;
+    color: #fff;
     text-align: center;
   }
   
-  .stats-container {
+  .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 15px;
+    padding: 0 1rem;
+    width: 100%;
   }
   
   /* Header Section */
-  .stats-header {
-    margin-bottom: 60px;
+  .header {
+    margin-bottom: 4rem;
   }
   
-  .stats-heading {
+  .header h2 {
     font-size: 2.5rem;
     font-weight: 700;
-    margin-bottom: 20px;
-    color: #ffffff;
+    margin-bottom: 1.25rem;
+    color: #fff;
   }
   
-  .stats-subheading {
+  .header p {
     font-size: 1rem;
     max-width: 800px;
     margin: 0 auto;
     line-height: 1.6;
+    opacity: 0.9;
   }
   
-  /* Main Experience Counter */
-  .experience-highlight {
-    margin-bottom: 50px;
+  /* Years Experience Section */
+  .years-experience {
+    margin-bottom: 3rem;
   }
   
-  .experience-frame {
+  .years-card {
     display: inline-block;
     background-color: rgba(255, 255, 255, 0.05);
-    padding: 50px 70px;
-    border-radius: 5px;
+    padding: 3rem 4rem;
+    border-radius: 8px;
+    transition: transform 0.3s, box-shadow 0.3s;
   }
   
-  .experience-number {
-    font-size: 8rem;
+  .years-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  }
+  
+  .years-card .counter {
+    font-size: 7rem;
     font-weight: 700;
     line-height: 1;
     display: block;
-    color: #ffffff;
+    color: #fff;
   }
   
-  .experience-text {
+  .years-card .label {
     display: block;
     font-size: 1rem;
     font-weight: 500;
     letter-spacing: 2px;
-    margin-top: 10px;
-    color: #ffffff;
+    margin-top: 0.625rem;
+    color: #fff;
+    opacity: 0.9;
   }
   
-  .experience-separator {
-    width: 50px;
+  .years-card .separator {
+    width: 3rem;
     height: 2px;
     background-color: rgba(255, 255, 255, 0.3);
-    margin: 20px auto 0;
+    margin: 1.25rem auto 0;
   }
   
-  /* Partner Icons */
-  .partner-row {
+  /* Partners Section */
+  .partners {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
-    margin-bottom: 50px;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-bottom: 3rem;
   }
   
-  .partner-logo {
+  .partners img {
     max-width: 60px;
     height: auto;
-    filter: brightness(0) invert(0.5);
-    transition: filter 0.3s ease;
+    transition: opacity 0.3s, transform 0.3s;
+    opacity: 0.8;
   }
   
-  .partner-logo:hover {
-    filter: brightness(0) invert(0.8);
+  .partners img:hover {
+    opacity: 1;
+    transform: scale(1.1);
   }
   
-  /* Statistics Grid */
-  .metrics-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
+  /* Stats Grid */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.125rem;
     max-width: 900px;
     margin: 0 auto;
   }
   
-  .metrics-row {
-    display: flex;
-    gap: 2px;
-  }
-  
-  .metric-item {
-    flex: 1;
+  .stat-card {
     background-color: rgba(255, 255, 255, 0.05);
-    padding: 40px 20px;
+    padding: 2.5rem 1.25rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    transition: background-color 0.3s;
   }
   
-  .metric-value-wrapper {
+  .stat-card:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .stat-value {
     display: flex;
     align-items: baseline;
     justify-content: center;
-    margin-bottom: 10px;
+    margin-bottom: 0.625rem;
   }
   
-  .metric-value {
+  .counter {
     font-size: 3rem;
     font-weight: 700;
-    color: #ffffff;
+    color: #fff;
   }
   
-  .metric-plus {
+  .plus {
     font-size: 2rem;
     font-weight: 700;
-    color: #ffffff;
+    color: #fff;
     margin-left: 2px;
   }
   
-  .metric-label {
+  .stat-label {
     font-size: 0.9rem;
     font-weight: 400;
-    color: #ffffff;
+    color: #fff;
+    opacity: 0.9;
   }
   
   /* Counter Animation */
@@ -5335,57 +5395,87 @@ a:focus {
     }
   }
   
-  .stat-animate {
+  .counter {
+    opacity: 0;
+  }
+  
+  .counter.visible {
     animation: countUp 1s ease-out forwards;
   }
   
-  /* Responsive Styles */
+  /* Media Queries - Responsive Design */
   @media (max-width: 992px) {
-    .stats-heading {
+    .header h2 {
       font-size: 2.2rem;
     }
     
-    .experience-number {
+    .years-card .counter {
       font-size: 6rem;
     }
     
-    .experience-frame {
-      padding: 40px 50px;
+    .years-card {
+      padding: 2.5rem 3rem;
     }
   }
   
   @media (max-width: 768px) {
-    .metrics-row {
-      flex-direction: column;
+    .stats-grid {
+      grid-template-columns: 1fr;
     }
     
-    .metric-item {
-      padding: 30px 20px;
-    }
-    
-    .partner-row {
-      flex-wrap: wrap;
+    .stat-card {
+      padding: 2rem 1.25rem;
     }
   }
   
   @media (max-width: 576px) {
-    .stats-heading {
+    .header h2 {
       font-size: 1.8rem;
     }
     
-    .experience-number {
+    .years-card .counter {
       font-size: 5rem;
     }
     
-    .experience-frame {
-      padding: 30px 40px;
+    .years-card {
+      padding: 2rem 2.5rem;
     }
     
-    .metric-value {
+    .counter {
       font-size: 2.5rem;
+    }
+    
+    .partners {
+      gap: 1.5rem;
     }
   }
 
+
+  .service-inner {
+    position: relative;
+    overflow: hidden; /* Ensure content doesn't overflow */
+  }
+  
+  .hover-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7); /* Dark overlay */
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    padding: 20px;
+    text-align: left;
+  }
+  
+  .service-inner:hover .hover-content {
+    opacity: 1;
+  }
 .portfolio-content-wrap:hover .portfolio-details-link {
     transform: translateY(0px);
     opacity: 1;
@@ -9369,3 +9459,66 @@ footer {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     z-index: 9999
 }
+
+
+.service-inner {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .hover-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    padding: 20px;
+    text-align: left;
+  }
+  
+  .service-card:hover .hover-content {
+    opacity: 1;
+  }
+  
+  .hover-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .hover-content li {
+    margin-bottom: 10px;
+    font-size: 1rem;
+  }
+
+  .footer-logo img {
+    max-width: 150px; /* Adjust logo size */
+  }
+  
+  .footer-social-style2 {
+    display: flex;
+    justify-content: center; /* Center the social icons */
+    gap: 15px; /* Space between icons */
+  }
+  
+  .footer-social-style2 a {
+    color: #fff; /* Ensure text color is white */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
+  }
+  
+  .footer-social-style2 a:hover {
+    color: #ffcc00; /* Change color on hover */
+  }
+  
+  .footer-social-style2 i {
+    font-size: 1.5rem; /* Increase icon size */
+  }

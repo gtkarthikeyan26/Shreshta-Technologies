@@ -30,48 +30,42 @@
 
 // Statistics Animation
 document.addEventListener('DOMContentLoaded', function() {
-    // Select all elements with class 'stat-animate'
-    const animatedStats = document.querySelectorAll('.stat-animate');
-    
-    // Intersection Observer to trigger animation when stats are visible
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px'
-    };
-    
-    const statsObserver = new IntersectionObserver((entries, observer) => {
+    // Intersection Observer for animation triggers
+    const counterObserver = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          const statElement = entry.target;
-          const targetValue = parseInt(statElement.getAttribute('data-count'));
-          let currentValue = 0;
-          const duration = 2000; // Animation duration in milliseconds
-          const stepTime = 50; // Update interval in milliseconds
-          const totalSteps = duration / stepTime;
-          const stepValue = targetValue / totalSteps;
+          const counter = entry.target;
+          counter.classList.add('visible');
           
-          // Start counting animation
-          const countAnimation = setInterval(() => {
-            currentValue += stepValue;
+          const target = parseInt(counter.getAttribute('data-target'));
+          const duration = 2000; // ms
+          const frameDuration = 1000/60; // 60fps
+          const totalFrames = Math.round(duration / frameDuration);
+          let frame = 0;
+          
+          // Start counting
+          const countdown = setInterval(() => {
+            frame++;
+            const progress = frame / totalFrames;
+            const currentCount = Math.round(progress * target);
             
-            // Update the counter value
-            if (currentValue < targetValue) {
-              statElement.textContent = Math.floor(currentValue);
+            if (frame === totalFrames) {
+              counter.textContent = target;
+              clearInterval(countdown);
             } else {
-              statElement.textContent = targetValue;
-              clearInterval(countAnimation);
+              counter.textContent = currentCount;
             }
-          }, stepTime);
+          }, frameDuration);
           
-          // Unobserve after triggering animation
-          observer.unobserve(statElement);
+          // Only trigger once
+          observer.unobserve(counter);
         }
       });
-    }, observerOptions);
+    }, { threshold: 0.25 });
     
     // Observe all counters
-    animatedStats.forEach(stat => {
-      statsObserver.observe(stat);
+    document.querySelectorAll('.counter').forEach(counter => {
+      counterObserver.observe(counter);
     });
   });
 ! function(s) {
