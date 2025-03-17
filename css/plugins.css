@@ -39968,7 +39968,7 @@ header {
         height: 45px;
         padding: 0;
         border-radius: 0;
-        position: absolute;
+        
         right: 0;
         top: 13px;
         cursor: pointer;
@@ -40099,26 +40099,50 @@ header {
         border-bottom: 1px solid rgba(255, 255, 255, 0.35)
     }
     .header-style1 .navbar-toggler {
-        background: #fff
-    }
-    .header-style1 .navbar-toggler:after {
+        background: #fff;
+      }
+      
+      .header-style1 .navbar-toggler:after {
         border-top: 2px solid #282b2d;
-        border-bottom: 2px solid #282b2d
-    }
-    .header-style1 .navbar-toggler:before {
-        background: #282b2d
-    }
-    .header-style1 .navbar-toggler.menu-opened:after {
+        border-bottom: 2px solid #282b2d;
+      }
+      
+      .header-style1 .navbar-toggler:before {
         background: #282b2d;
-        border-bottom: none
-    }
-    .header-style1 .navbar-toggler.menu-opened:before {
-        background: #282b2d
-    }
-    .header-style1 .attr-nav>ul>li>a {
-        color: #fff
-    }
-}
+      }
+      
+      .header-style1 .navbar-toggler.menu-opened:after {
+        background: #282b2d;
+        border-bottom: none;
+      }
+      
+      .header-style1 .navbar-toggler.menu-opened:before {
+        background: #282b2d;
+      }
+      
+      .header-style1 .attr-nav > ul > li > a {
+        color: #fff;
+      }
+      
+      @media screen and (max-width: 767px) {
+        .header-style1 .navbar-toggler {
+          width: 40px; /* Adjust width for smaller screens */
+          height: 35px; /* Adjust height for smaller screens */
+        }
+      
+        .header-style1 .navbar-toggler:after,
+        .header-style1 .navbar-toggler:before {
+          right: 10px; /* Adjust position for smaller screens */
+        }
+      
+        .header-style1 .navbar-toggler:after {
+          top: 18px; /* Adjust top position for smaller screens */
+        }
+      
+        .header-style1 .navbar-toggler:before {
+          top: 12px; /* Adjust top position for smaller screens */
+        }
+      }
 
 code[class*="language-"],
 pre[class*="language-"] {
