@@ -22411,6 +22411,9 @@ screen and (max-height: 300px) {
     cursor: pointer;
     z-index: 1;
     -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    backface-visibility: hidden;
     transition: transform 100ms ease
 }
 
@@ -22480,7 +22483,7 @@ screen and (max-height: 300px) {
 .owl-theme .owl-dots .owl-dot {
     display: inline-block;
     zoom: 1;
-    *display: inline
+    display: inline
 }
 
 .owl-theme .owl-dots .owl-dot span {
@@ -40277,4 +40280,5 @@ pre[class*="language-"] {
 
 .token.entity {
     cursor: help
+}
 }
